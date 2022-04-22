@@ -1,0 +1,21 @@
+version: '3'
+services:
+  postgresql:
+    image: postgres
+    volumes:
+      - postgres-dat:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=gestor_documental
+      - POSTGRES_USER=admin_db
+      - POSTGRES_PASSWORD=admin_12345678
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+volumes:
+  postgres-dat:
